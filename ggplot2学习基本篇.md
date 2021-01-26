@@ -14,10 +14,9 @@ dsamll <- diamonds[sample(nrow(diamonds),100),]
 qplot(carat,price,data = diamonds)
 ```
 
-<img src="https://img-blog.csdnimg.cn/20201130173428679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1NDcw,size_16,color_FFFFFF,t_70" alt="img" style="zoom:50%;" />
+<img src="ggplot2学习基本篇.assets/20201130173428679.png" alt="img" style="zoom:50%;" />
 
 <div align="center">图1 钻石价格和重量间关系散点图</div>
-
 ![点击并拖拽以移动](data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==)
 
 qplot()的前两个参数是x和y，分别代表图中所画对象的x坐标和y坐标。
@@ -32,20 +31,18 @@ data参数：如果指定，则qplot()将会首先在该数据框内查找变量
 qplot(log(carat),log(price),data = diamonds)
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201130174916353.png" alt="image-20201130174916353" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201130174916353-1608085950701.png" alt="image-20201130174916353" style="zoom:50%;" />
 
 <div align="center">图2 取对数后的散点图</div>
-
 图2关系接近线性。
 
 ```R
 qplot(carat,x*y*z,data = diamonds)
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201130175253991.png" alt="image-20201130175253991" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201130175253991-1608085955570.png" alt="image-20201130175253991" style="zoom:50%;" />
 
 <div align = "center">图3 钻石体积和重量间的关系</div>
-
 **数据集** dsmall
 
 添加颜色
@@ -55,20 +52,18 @@ dsmall <- dsmall
 qplot(carat,price,data = dsmall,colour=color)
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201130175717905.png" alt="image-20201130175717905" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201130175717905-1608085957909.png" alt="image-20201130175717905" style="zoom:50%;" />
 
 <div align = "center">图4 散点图添加颜色</div>
-
 
 
 ```R
 qplot(carat,price,data = dsmall,shape=cut)
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201091043920.png" alt="image-20201201091043920" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201091043920-1608085960159.png" alt="image-20201201091043920" style="zoom:50%;" />
 
 <div align = "center">图5 散点图添加形状</div>
-
 
 
 可以利用I()来手动设定图形的属性，如：
@@ -79,42 +74,37 @@ qplot(carat,price,data = diamonds,color = I("red"))
 
 
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201091656895.png" alt="image-20201201091656895" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201091656895-1608085965294.png" alt="image-20201201091656895" style="zoom:50%;" />
 
 <div align = "center">图6 散点图指定颜色（红）</div>
-
 
 
 ```R
 qplot(carat,price,data = diamonds,size = I(2))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201091819831.png" alt="image-20201201091819831" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201091819831-1608085962620.png" alt="image-20201201091819831" style="zoom:50%;" />
 
 <div align = "center">图7 散点图指定散点大小（2）</div>
-
 
 
 ```R
 qplot(carat,price,data = diamonds,alpha = I(1/10))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201091404681.png" alt="image-20201201091404681" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201091404681-1608085970371.png" alt="image-20201201091404681" style="zoom:50%;" />
 
 <div align = "center">图8 散点图添加半透明(1/10)</div>
-
 <div align = "center">取值从0(完全透明)到1(完全不透明)</div>
-
 
 
 ```
 qplot(carat,price,data = diamonds,alpha = I(1/100))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201092157303.png" alt="image-20201201092157303" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201092157303-1608085973094.png" alt="image-20201201092157303" style="zoom:50%;" />
 
 <div align = "center">图9 散点图添加半透明(1/100)</div>
-
 
 
 # 二、线状图
@@ -150,20 +140,18 @@ qplot并非只能画散点图，通过改变几何对象(geom)，它几乎画出
 qplot(carat,price,data = dsmall, geom = c("point","smooth"))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201094820984.png" alt="image-20201201094820984" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201094820984.png" alt="image-20201201094820984" style="zoom:50%;" />
 
 <div align = "center">图10 散点图加入平滑曲线(dsmall)</div>
-
 
 
 ```R
 qplot(carat,price,data = diamonds, geom = c("point","smooth"))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201094941996.png" alt="image-20201201094941996" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201094941996.png" alt="image-20201201094941996" style="zoom:50%;" />
 
 <div align = "center">图11 散点图加入平滑曲线(diamonds)</div>
-
 
 
 如不想绘制标准误，则可以使用**se = FALSE**
@@ -172,10 +160,9 @@ qplot(carat,price,data = diamonds, geom = c("point","smooth"))
 qplot(carat,price,data = diamonds, geom = c("point","smooth"),se = FALSE)
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201095150471.png" alt="image-20201201095150471" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201095150471.png" alt="image-20201201095150471" style="zoom:50%;" />
 
 <div align = "center">图12 散点图加入平滑曲线，不绘制标准误(diamonds)</div>
-
 
 
 利用**method**参数可以选择不同的平滑器，如：
@@ -186,18 +173,16 @@ qplot(carat,price,data = diamonds, geom = c("point","smooth"),se = FALSE)
 qplot(carat,price,data = dsmall, geom = c("point","smooth"),span = 0.2)
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201095553477.png" alt="image-20201201095553477" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201095553477.png" alt="image-20201201095553477" style="zoom:50%;" />
 
 <div align = "center">图13 散点图加入平滑曲线，span(0.2)</div>
-
 ```R
 qplot(carat,price,data = dsmall, geom = c("point","smooth"),span = 1)
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201095716863.png" alt="image-20201201095716863" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201095716863.png" alt="image-20201201095716863" style="zoom:50%;" />
 
 <div align = "center">图14 散点图加入平滑曲线，span(1)</div>
-
 Loess对于大数据并不十分适用（内存的消耗是O(n^2)），因此当n超过1000时将默认采用另一种平滑算法。
 
 - **method = "gam", formula = y  ~ s(x)** 调用mgcv包拟合一个广义可加模型。对于大数据，请使用公式**y ~ s(x, bs = "cs")**，这是数据量超过1000时默认使用的选项。
@@ -207,20 +192,18 @@ library(mgcv)
 qplot(carat,price,data = dsmall, geom = c("point","smooth"),method = "gam", formula = y ~ s(x))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201100410608.png" alt="image-20201201100410608" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201100410608.png" alt="image-20201201100410608" style="zoom:50%;" />
 
 <div align = "center">图15 formula = y ~ s(x)</div>
-
 
 
 ```R
 qplot(carat,price,data = dsmall, geom = c("point","smooth"),method = "gam", formula = y ~ s(x, bs = "cs"))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201100620120.png" alt="image-20201201100620120" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201100620120.png" alt="image-20201201100620120" style="zoom:50%;" />
 
 <div align = "center">图16 formula = y ~ s(x, bs = "cs")</div>
-
 - **method = "lm"** 拟合的是线性模型。默认情况下会拟合一条直线，但可以通过指定formula = y ~ poly(x, 2) 来拟合一个二次多项式或加载splines包以使用自然样条：formula = y ~ ns(x, 2)。第二个参数是自由度：自由度取值越大，曲线的波动也越大。
 
   ```R
@@ -228,20 +211,18 @@ qplot(carat,price,data = dsmall, geom = c("point","smooth"),method = "gam", form
   qplot(carat, price, data = dsmall, geom = c("point", "smooth"), method = "lm")
   ```
 
-  <img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201103217472.png" alt="image-20201201103217472" style="zoom:50%;" />
+  <img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201103217472.png" alt="image-20201201103217472" style="zoom:50%;" />
 
 <div align = "center">图17 method = "lm", formula = y ~ x</div>
-
 
 
 ```R
 qplot(carat, price, data = dsmall, geom = c("point", "smooth"), method = "lm", formula = y ~ ns(x,5))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201103330293.png" alt="image-20201201103330293" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201103330293.png" alt="image-20201201103330293" style="zoom:50%;" />
 
 <div align = "center">图18 method = "lm", formula = y ~ ns(x, 5)</div>
-
 
 
 - **method = "rlm"** 与lm类似，但采用了一种更稳健的拟合算法，使得结果对异常值不太敏感。需要先加载MASS包。
@@ -251,10 +232,9 @@ library(MASS)
 qplot(carat, price, data = dsmall, geom = c("point", "smooth"), method = "rlm")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201103751162.png" alt="image-20201201103751162" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201103751162.png" alt="image-20201201103751162" style="zoom:50%;" />
 
 <div align = "center">图19 method = "rlm"</div>
-
 
 
 # 三、扰动点图
@@ -265,10 +245,9 @@ qplot(carat, price, data = dsmall, geom = c("point", "smooth"), method = "rlm")
 qplot(color, price / carat, data = diamonds, geom = "jitter")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201104910389.png" alt="image-20201201104910389" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201104910389.png" alt="image-20201201104910389" style="zoom:50%;" />
 
 <div align = "center">图20 扰动点图</div>
-
 扰动点图将所有的点都绘制到图中（存在图形重叠的问题）。图形重叠问题可以通过半透明颜色来部分解决，即使用alpha参数。
 
 以下展示三种水平的透明度：
@@ -277,30 +256,27 @@ qplot(color, price / carat, data = diamonds, geom = "jitter")
 qplot(color, price / carat, data = diamonds, geom = "jitter", alpha = I(1 / 5))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201105316107.png" alt="image-20201201105316107" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201105316107.png" alt="image-20201201105316107" style="zoom:50%;" />
 
 <div align = "center">图21 扰动点图，透明度1/5</div>
-
 
 
 ```R
 qplot(color, price / carat, data = diamonds, geom = "jitter", alpha = I(1 / 50))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201105624680.png" alt="image-20201201105624680" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201105624680.png" alt="image-20201201105624680" style="zoom:50%;" />
 
 <div align = "center">图22 扰动点图，透明度1/50</div>
-
 
 
 ```R
 qplot(color, price / carat, data = diamonds, geom = "jitter", alpha = I(1 / 200))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201105747272.png" alt="image-20201201105747272" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201105747272.png" alt="image-20201201105747272" style="zoom:50%;" />
 
 <div align = "center">图23 扰动点图，透明度1/200</div>
-
 
 
 # 四、箱线图
@@ -311,10 +287,9 @@ qplot(color, price / carat, data = diamonds, geom = "jitter", alpha = I(1 / 200)
 qplot(color, price / carat, data = diamonds, geom = "boxplot")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201110108640.png" alt="image-20201201110108640" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201110108640.png" alt="image-20201201110108640" style="zoom:50%;" />
 
 <div align = "center">图24 箱线图</div>
-
 
 
 # 五、直方图
@@ -325,10 +300,9 @@ qplot(color, price / carat, data = diamonds, geom = "boxplot")
 qplot(carat, data = diamonds, geom = "histogram")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201110526592.png" alt="image-20201201110526592" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201110526592.png" alt="image-20201201110526592" style="zoom:50%;" />
 
 <div align = "center">图25 钻石重量的直方图</div>
-
 对于直方图而言，binwidth参数通过设定组距来调节平滑度。当组距较大时，图形能反映数据的总体特征；当组距较小时，则能显示出更多的细节。
 
 以下尝试三种binwidth的取值：
@@ -337,30 +311,27 @@ qplot(carat, data = diamonds, geom = "histogram")
 qplot(carat, data = diamonds, geom = "histogram", binwidth = 1, xlim = c(0,3))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201111454302.png" alt="image-20201201111454302" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201111454302.png" alt="image-20201201111454302" style="zoom:50%;" />
 
 <div align = "center">图26 组距1</div>
-
 
 
 ```R
 qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.1, xlim = c(0,3))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201111713212.png" alt="image-20201201111713212" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201111713212.png" alt="image-20201201111713212" style="zoom:50%;" />
 
 <div align = "center">图27 组距0.1</div>
-
 
 
 ```R
 qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.01, xlim = c(0,3))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201111820146.png" alt="image-20201201111820146" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201111820146.png" alt="image-20201201111820146" style="zoom:50%;" />
 
 <div align = "center">图28 组距0.01</div>
-
 
 
 要在不同组之间对分布进行对比，只需要再加上一个图形映射：
@@ -369,10 +340,9 @@ qplot(carat, data = diamonds, geom = "histogram", binwidth = 0.01, xlim = c(0,3)
 qplot(carat, data = diamonds, geom = "histogram", fill = color)
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201112254524.png" alt="image-20201201112254524" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201112254524.png" alt="image-20201201112254524" style="zoom:50%;" />
 
 <div align = "center">图29 添加图形映射</div>
-
 当一个分类变量被映射到某个图形属性上，几何对象会自动按这个变量进行拆分。因此上述命令告诉qplot()对每一种钻石颜色都绘制一次直方图。密度曲线图同。
 
 
@@ -385,10 +355,9 @@ qplot(carat, data = diamonds, geom = "histogram", fill = color)
 qplot(carat, data = diamonds, geom = "density")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201110723263.png" alt="image-20201201110723263" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201110723263.png" alt="image-20201201110723263" style="zoom:50%;" />
 
 <div align = "center">图30 钻石重量的密度曲线图</div>
-
 对于密度曲线图而言，adjust参数控制了曲线的平滑程度(adjust取值越大，曲线越平滑)。
 
 
@@ -397,10 +366,9 @@ qplot(carat, data = diamonds, geom = "density")
 qplot(carat, data = diamonds, geom = "density", colour = color)
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201112038652.png" alt="image-20201201112038652" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201112038652.png" alt="image-20201201112038652" style="zoom:50%;" />
 
 <div align = "center">图31 钻石重量的密度曲线图，添加图形映射</div>
-
 
 
 # 七、条形图
@@ -411,10 +379,9 @@ qplot(carat, data = diamonds, geom = "density", colour = color)
 qplot(color, data = diamonds, geom = "bar")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201113250658.png" alt="image-20201201113250658" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201113250658.png" alt="image-20201201113250658" style="zoom:50%;" />
 
 <div align = "center">图32 普通条形图</div>
-
 
 
 按weight = carat进行加权，展示了每种钻石的总重量。
@@ -423,10 +390,9 @@ qplot(color, data = diamonds, geom = "bar")
 qplot(color, data = diamonds, geom = "bar", weight = carat) + scale_y_continuous("carat")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201113440800.png" alt="image-20201201113440800" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201113440800.png" alt="image-20201201113440800" style="zoom:50%;" />
 
 <div align = "center">图33 按重量加权的条形图</div>
-
 
 
 # 八、时间序列中的线条图
@@ -441,20 +407,18 @@ diamonds数据集中没有包含时间变量，因此这里使用economics数据
 qplot(date, unemploy / pop, data = economics, geom = "line")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201114101645.png" alt="image-20201201114101645" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201114101645.png" alt="image-20201201114101645" style="zoom:50%;" />
 
 <div align = "center">图34 失业率的变化线条图</div>
-
 
 
 ```R
 qplot(date, uempmed, data = economics, geom = "line")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201140259971.png" alt="image-20201201140259971" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201140259971.png" alt="image-20201201140259971" style="zoom:50%;" />
 
 <div align = "center">图35 失业星期数的中位数线条图</div>
-
 
 
 # 九、路径图
@@ -466,20 +430,18 @@ year <- function(x) as.POSIXlt(x)$year + 1900
 qplot(unemploy / pop, uempmed, data = economics, geom = c("point", "path"))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201125057412.png" alt="image-20201201125057412" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201125057412.png" alt="image-20201201125057412" style="zoom:50%;" />
 
 <div align = "center">图36 展示失业率和失业时间长度之间关系的路径图（重叠在一起的散点图和路径图）</div>
-
 
 
 ```R
 qplot(unemploy / pop, uempmed, data = economics, geom = "path", colour = year(date))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201140842324.png" alt="image-20201201140842324" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201140842324.png" alt="image-20201201140842324" style="zoom:50%;" />
 
 <div align = "center">图37 展示失业率和失业时间长度之间关系的路径图（将年份映射到了colour属性上）</div>
-
 
 
 # 十、分面
@@ -492,20 +454,18 @@ qplot(unemploy / pop, uempmed, data = economics, geom = "path", colour = year(da
 qplot(carat, data = diamonds, facets = color ~ ., geom = "histogram", binwidth = 0.1, xlim = c(0, 3))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201142431152.png" alt="image-20201201142431152" style="zoom: 67%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201142431152.png" alt="image-20201201142431152" style="zoom: 67%;" />
 
 <div align = "center">图38 频数 直方图</div>
-
 
 
 ```R
 qplot(carat, ..density.., data = diamonds, facets = color ~ ., geom = "histogram", binwidth = 0.1, xlim = c(0, 3))
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201142617417.png" alt="image-20201201142617417" style="zoom:67%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201142617417.png" alt="image-20201201142617417" style="zoom:67%;" />
 
 <div align = "center">图39 频率 直方图</div>
-
 ..density.. 是一个新语法，它告诉ggplot2将密度而不是频数映射到y轴。
 
 
@@ -527,10 +487,9 @@ qplot(
   )
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201144414509.png" alt="image-20201201144414509" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201144414509.png" alt="image-20201201144414509" style="zoom:50%;" />
 
 <div align = "center">图40 添加主标题，x和y轴的标签文字</div>
-
 
 
 ```R
@@ -543,16 +502,15 @@ qplot(
   )
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201145130385.png" alt="image-20201201145130385" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201145130385.png" alt="image-20201201145130385" style="zoom:50%;" />
 
 <div align = "center">图41 数学表达式使用</div>
-
 
 
 ```R
 qplot(carat, price, data = dsmall, log = "xy")
 ```
 
-<img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20201201145440190.png" alt="image-20201201145440190" style="zoom:50%;" />
+<img src="ggplot2%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E7%AF%87.assets/image-20201201145440190.png" alt="image-20201201145440190" style="zoom:50%;" />
 
 <div align = "center">图42 log函数使用</div>
